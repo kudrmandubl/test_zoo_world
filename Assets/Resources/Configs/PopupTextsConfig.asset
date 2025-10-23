@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caf235e061a02fa4f93f82d578ced63c, type: 3}
+  m_Name: PopupTextsConfig
+  m_EditorClassIdentifier: Assembly-CSharp::PopupTexts.Configs.PopupTextsConfig
+  _popupTextPanelPrefab: {fileID: 4055911852714461010, guid: 0dd1aec7e6f30fa45890b547b8b260d0, type: 3}
+  _deltaStartPosition: {x: 0, y: 50, z: 0}
+  _deltaMove: {x: 0, y: 100, z: 0}
+  _scaleInDuration: 0.4
+  _moveDuration: 1.2
+  _fadeOutDuration: 0.3
+  _popupTextConfigsData:
+  - _textType: 1
+    _text: Tasty!
+    _textColor: {r: 0.97735846, g: 0.44073334, b: 0.44073334, a: 1}
+    _textScale: 1

@@ -336,6 +336,7 @@ MonoBehaviour:
   _monoInstallers:
   - {fileID: 2087227884}
   - {fileID: 978172523}
+  - {fileID: 1978680605}
   - {fileID: 1658621369}
   - {fileID: 1831064176}
   _installerPrefabs: []
@@ -484,6 +485,7 @@ Transform:
   - {fileID: 622908597}
   - {fileID: 2087227883}
   - {fileID: 978172522}
+  - {fileID: 1978680604}
   - {fileID: 1658621368}
   - {fileID: 1831064175}
   m_Father: {fileID: 0}
@@ -869,6 +871,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d87b972dbf9efe49b7b43806e73e8ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameLoop.DI.GameLoopInstaller
+--- !u!1 &1978680603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1978680604}
+  - component: {fileID: 1978680605}
+  m_Layer: 0
+  m_Name: PopupTextsInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1978680604
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978680603}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 894274457}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1978680605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978680603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ccbb6f176c47146ba52f7931202218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PopupTexts.DI.PopupTextsInstaller
 --- !u!1 &2066517546
 GameObject:
   m_ObjectHideFlags: 0
