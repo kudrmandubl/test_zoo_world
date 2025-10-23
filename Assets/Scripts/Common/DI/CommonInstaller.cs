@@ -9,6 +9,10 @@ namespace Common.DI
     {
         public override void InstallBindings()
         {
+            Container.Bind<IGameContainer>()
+                .To<GameContainer>()
+                .FromNewComponentOnNewGameObject()
+                .AsCached();
             Container.Bind<IMonoBehaviourCycle>()
                 .To<SimpleMonoBehaviourCycle>()
                 .FromNewComponentOnNewGameObject()

@@ -2,6 +2,8 @@
 using Animals.Configs;
 using Animals.Enums;
 using Animals.Interfaces;
+using Common.Implementations.Systems;
+using Common.Interfaces;
 using UnityEngine;
 using Zenject;
 using static UnityEditor.Rendering.FilterWindow;
@@ -13,6 +15,7 @@ namespace Animals.Implementations.Systems
         private IFactory<IAnimalDynamicData> _animalDynamicDataFactory;
         private IFactory<IAnimalSimpleMoveDynamicData> _animalSimpleMoveDynamicDataFactory;
         private IFactory<IAnimalJumpMoveDynamicData> _animalJumpMoveDynamicDataFactory;
+        private IGameContainer _gameContainer;
 
         private Dictionary<AnimalType, IAnimalView> _typeToPrefabPairs;
         private Dictionary<IAnimalView, bool> _elementToFreePairs;
@@ -21,11 +24,13 @@ namespace Animals.Implementations.Systems
         public AnimalPool(AnimalsConfig animalsConfig, 
              IFactory<IAnimalDynamicData> animalDynamicDataFactory,
              IFactory<IAnimalSimpleMoveDynamicData> animalSimpleMoveDynamicDataFactory,
-             IFactory<IAnimalJumpMoveDynamicData> animalJumpMoveDynamicDataFactory)
+             IFactory<IAnimalJumpMoveDynamicData> animalJumpMoveDynamicDataFactory,
+             IGameContainer gameContainer)
         {
             _animalDynamicDataFactory = animalDynamicDataFactory;
             _animalSimpleMoveDynamicDataFactory = animalSimpleMoveDynamicDataFactory;
             _animalJumpMoveDynamicDataFactory = animalJumpMoveDynamicDataFactory;
+            _gameContainer = gameContainer;
 
             var typeToPrefabPairs = new Dictionary<AnimalType, IAnimalView>();
             for (int i = 0; i < animalsConfig.AnimalConfigs.Length; i++)
@@ -36,6 +41,7 @@ namespace Animals.Implementations.Systems
 
             _typeToPrefabPairs = typeToPrefabPairs;
             _container = new GameObject(nameof(AnimalPool)).transform;
+            _container.SetParent(_gameContainer.Container);
 
             _elementToFreePairs = new Dictionary<IAnimalView, bool>();
         }
