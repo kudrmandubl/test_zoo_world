@@ -7,23 +7,30 @@ namespace Animals.Implementations.Systems
 {
     public class AnimalJumpMoveLogic : IAnimalMoveLogic
     {
-        private const float JumpForceCoef = 35;
+        private const float JumpAngle = 45f;
 
         public void MoveAnimals(List<IAnimalView> animalViews, float deltaTime)
         {
             for (int i = 0; i < animalViews.Count; i++)
             {
                 var animalView = animalViews[i];
-                if(!(animalView.AnimalMoveDynamicData is IAnimalJumpMoveDynamicData animalJumpMoveDynamicData))
+                if (!(animalView.AnimalMoveDynamicData is IAnimalJumpMoveDynamicData animalJumpMoveDynamicData))
                 {
                     continue;
                 }
 
                 animalJumpMoveDynamicData.JumpTimer += deltaTime;
-                if(animalJumpMoveDynamicData.JumpTimer >= animalJumpMoveDynamicData.JumpTime)
+                if (animalJumpMoveDynamicData.JumpTimer >= animalJumpMoveDynamicData.JumpTime)
                 {
                     animalJumpMoveDynamicData.JumpTimer -= animalJumpMoveDynamicData.JumpTime;
-                    animalView.Rigidbody.AddForce((animalView.Transform.forward + Vector3.up) * animalView.Rigidbody.mass * animalJumpMoveDynamicData.Distance * JumpForceCoef);
+
+                    var radians = JumpAngle * Mathf.Deg2Rad;
+                    var initialSpeed = Mathf.Sqrt(animalJumpMoveDynamicData.Distance * Physics.gravity.magnitude / Mathf.Sin(2 * radians));
+                    animalView.Rigidbody.linearVelocity = new Vector3(
+                        animalView.Transform.forward.x * initialSpeed * Mathf.Cos(radians),
+                        initialSpeed * Mathf.Sin(radians),
+                        animalView.Transform.forward.z * initialSpeed * Mathf.Cos(radians)
+                    );
                 }
             }
         }
